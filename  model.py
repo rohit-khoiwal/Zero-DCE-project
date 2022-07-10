@@ -1,8 +1,11 @@
 import flax.linen as nn
 import jax.numpy as jnp
 from loss_functions import *
+from utils import get_enhanced_image
 
 class dce_net(nn.Module):
+    loss_spa : None
+
     @nn.compact
     def __call__(self, x):
         
@@ -33,7 +36,7 @@ class dce_net(nn.Module):
         enhanced_y = get_enhanced_image(org, output)
         
         loss_ls = 200 * illumination_smoothness_loss(output)
-        loss_spa = jnp.mean(loss_spa(org, enhanced_y))
+        loss_spa = jnp.mean(self.loss_spa(org, enhanced_y))
         loss_color = 5 * jnp.mean(color_constancy_loss(enhanced_y))
         loss_exp = 10 * jnp.mean(exposure_loss(enhanced_y))
         

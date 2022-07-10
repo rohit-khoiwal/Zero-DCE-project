@@ -43,6 +43,11 @@ class SpatialConsistencyLoss():
         self.up_conv = self.conv(kernel_init=self.init_uk)
         self.down_conv = self.conv(kernel_init=self.init_dk)
         
+        self.left_params = self.init_params(self.left_conv, jnp.ones([1, 64, 64, 1]))
+        self.right_params = self.init_params(self.right_conv, jnp.ones([1, 64, 64, 1]))
+        self.up_params = self.init_params(self.up_conv, jnp.ones([1, 64, 64, 1]))
+        self.down_params = self.init_params(self.right_conv, jnp.ones([1, 64, 64, 1]))
+        
     def init_lk(self, *args):
         return  jnp.array([
             [[[0]], [[0]], [[0]]], [[[-1]], [[1]], [[0]]], [[[0]], [[0]], [[0]]]
@@ -73,27 +78,22 @@ class SpatialConsistencyLoss():
         org_pool = nn.avg_pool(org_mean, window_shape=(4,4), strides=(4,4))
         enhance_pool = nn.avg_pool(enhance_mean, window_shape=(4,4), strides=(4,4))      
         
-        left_params = self.init_params(self.left_conv, org_pool)
-        right_params = self.init_params(self.right_conv, org_pool)
-        up_params = self.init_params(self.up_conv, org_pool)
-        down_params = self.init_params(self.right_conv, org_pool)
-        
         
         # left kernel
-        d_org_left = self.left_conv.apply(left_params, org_pool)
-        d_enhance_left = self.left_conv.apply(left_params, enhance_pool)
+        d_org_left = self.left_conv.apply(self.left_params, org_pool)
+        d_enhance_left = self.left_conv.apply(self.left_params, enhance_pool)
         
         #right kernel
-        d_org_right = self.right_conv.apply(right_params, org_pool)
-        d_enhance_right = self.right_conv.apply(right_params, enhance_pool)
+        d_org_right = self.right_conv.apply(self.right_params, org_pool)
+        d_enhance_right = self.right_conv.apply(self.right_params, enhance_pool)
         
         #up kernel
-        d_org_up = self.up_conv.apply(up_params, org_pool)
-        d_enhance_up = self.up_conv.apply(up_params, enhance_pool)
+        d_org_up = self.up_conv.apply(self.up_params, org_pool)
+        d_enhance_up = self.up_conv.apply(self.up_params, enhance_pool)
         
         #down kernel
-        d_org_down = self.down_conv.apply(down_params, org_pool)
-        d_enhance_down = self.down_conv.apply(down_params, enhance_pool)
+        d_org_down = self.down_conv.apply(self.down_params, org_pool)
+        d_enhance_down = self.down_conv.apply(self.down_params, enhance_pool)
         
         d_left = jnp.square(d_org_left - d_enhance_left)
         d_right = jnp.square(d_org_right - d_enhance_right)
