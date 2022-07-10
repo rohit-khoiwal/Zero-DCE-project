@@ -1,6 +1,7 @@
 import jax
 import jax.numpy as jnp
 import optax
+from PIL import Image
 import matplotlib.pyplot as plt
 from loss_functions import SpatialConsistencyLoss
 
