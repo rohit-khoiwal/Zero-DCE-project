@@ -11,7 +11,6 @@ def get_enhanced_image(org_img, output):
         org_img = org_img + r * (jnp.square(org_img) - org_img)
     return org_img
 
-
 def fit(
     model,
     params,
