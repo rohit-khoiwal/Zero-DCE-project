@@ -1,7 +1,7 @@
 import flax.linen as nn
 import jax.numpy as jnp
-from loss_functions import *
-from utils import get_enhanced_image
+from utils.loss_functions import *
+from utils.utils import get_enhanced_image
 
 
 class dce_net(nn.Module):
