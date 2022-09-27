@@ -3,7 +3,6 @@ __pycache__/
 *.vscode
 *.pyc
 *.pdf
-*.png
 *.idea
 datasets/
 more datasets/
