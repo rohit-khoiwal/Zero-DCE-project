@@ -11,7 +11,7 @@ In this demonstration, we train the lightweight deep network DCE-Net to calculat
 |||
 
 ## Getting Started
-It strictly need linux environment to run JAX and FLAX Framework.
+It strictly need linux environment for JAX and FLAX Framework.
 - Clone the repo.
 - Add dark/low-light image to test folder.
 - Open Terminal
