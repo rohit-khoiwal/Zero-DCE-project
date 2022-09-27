@@ -5,9 +5,10 @@ Low-light picture enhancement is defined by Zero-Reference Deep Curve Estimation
 In this demonstration, we train the lightweight deep network DCE-Net to calculate high-order tonal curves at the pixel level for the purpose of adjusting the dynamic range of a given image. 
 
 ## Architecture
-
-![](./architecture/framework.png)
-![](./architecture/layers.png)
+|   |   |
+|---|---|
+| [<img src="./architecture/framework.jpg" height=200px>](framework.jpg)  |[<img src="./architecture/layers.jpg" height=200px>](layers.jpg)|
+|||
 
 ## References
   - [JAX](https://jax.readthedocs.io)
