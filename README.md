@@ -10,11 +10,24 @@ In this demonstration, we train the lightweight deep network DCE-Net to calculat
 | ![framework](https://user-images.githubusercontent.com/87682045/192520372-0207f6b0-c7ac-4448-bc8a-5345972b497e.png)|![layers](https://user-images.githubusercontent.com/87682045/192520494-b195da62-3f03-4716-8e3d-e100dcf36257.png)  
 |||
 
+## Getting Started
+It strictly need linux environment to run JAX and FLAX Framework.
+- Clone the repo.
+- Add dark/low-light image to test folder.
+- Open Terminal
+Then execute the following command one at a time.
+```python
+  cd Zero-DCE-project
+  pip install -r requirements.txt
+  python app.py
+```
+
+
 ## Results
 | Before | After |
 |  ----  | ----- |
-|        |       |
-|        |       |
+|![1](https://user-images.githubusercontent.com/87682045/192528300-7f7c7f7c-7439-4d71-a68f-ef45e878c60d.png)|![enhance_1](https://user-images.githubusercontent.com/87682045/192528424-2aa6a52f-d86e-4649-b1a6-6cdedb1e4b43.png)|
+|![2](https://user-images.githubusercontent.com/87682045/192528374-6dd72a89-9d10-4dd7-8082-afa7703faad3.png)|![enhance_2](https://user-images.githubusercontent.com/87682045/192528483-feee73e0-83d8-4dc4-a9bf-86d2d5afc2d4.png)|
 
 ## References
   - [JAX](https://jax.readthedocs.io)
