@@ -7,7 +7,7 @@ In this demonstration, we train the lightweight deep network DCE-Net to calculat
 ## Architecture
 |   |   |
 |---|---|
-| [<img src="./architecture/framework.jpg" height=200px>](framework.jpg)  |[<img src="./architecture/layers.jpg" height=200px>](layers.jpg)|
+| ![framework](https://user-images.githubusercontent.com/87682045/192520372-0207f6b0-c7ac-4448-bc8a-5345972b497e.png)|![layers](https://user-images.githubusercontent.com/87682045/192520494-b195da62-3f03-4716-8e3d-e100dcf36257.png)  
 |||
 
 ## References
